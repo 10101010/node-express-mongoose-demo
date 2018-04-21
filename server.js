@@ -40,8 +40,14 @@ require('./config/express')(app, passport);
 require('./config/routes')(app, passport);
 
 connect()
-  .on('error', console.log)
-  .on('disconnected', connect)
+
+mongoose.connection
+  .on("error", function(err) {
+    console.error(err);
+  })
+  .on('disconnected', function () {
+    console.log('default connection to DB disconnected');
+  })
   .once('open', listen);
 
 function listen () {
