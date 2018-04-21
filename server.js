@@ -51,6 +51,6 @@ function listen () {
 }
 
 function connect () {
-  var options = { server: { socketOptions: { keepAlive: 1 } } };
+  var options = { socketOptions: { keepAlive: 1 } };
   return mongoose.connect(config.db, options).connection;
 }
