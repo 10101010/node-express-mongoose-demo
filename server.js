@@ -52,5 +52,5 @@ function listen () {
 
 function connect () {
   var options = { keepAlive: 1 };
-  return mongoose.connect(config.db, options).connection;
+  return mongoose.connect(config.db, options);
 }
